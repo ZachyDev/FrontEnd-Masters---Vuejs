@@ -18,6 +18,17 @@
               <textarea v-model="opinion"></textarea><br />
                <button type="button" :class="[opinion ? activeClass : '']">Submit poll</button>
           </form>
+
+          <!-- events in vuejs -->
+          <div class="product">
+              <h2>Shop with us</h2>
+              <img :src="require(`@/assets/${'tv.jpg'}`)" alt="">
+              <button class="dec" @click="counter > 0 ? counter -= 1 : 0">-</button>
+              <span id="qty">Quantity{{counter}}</span>
+              <button class="inc" @click="counter < 5 ? counter += 1 : 5">+</button>
+              <button id="submit" @click="submit">Submit</button>
+          </div>
+
           <pre> {{ $data }}</pre>
   </div>
 </template>
@@ -30,7 +41,13 @@ export default {
             username: '',
             checkedNames: [],
             opinion: '',
-            activeClass: 'active'
+            activeClass: 'active',
+            counter: 5
+        }
+    },
+    methods: {
+        submit() {
+            this.counter == 0 ? alert(`Enter the quantity size.`) : alert(`Order with quantity ${this.counter} successfully placed.`);
         }
     }
 }
@@ -43,6 +60,39 @@ export default {
     }
     button.active{
         background: orange;
+    }
+    .product{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product img {
+        position: absolute;
+        top:52% ;
+    }
+     .product button#submit{
+        position: absolute;
+        top:90% ;
+        background: #000;
+        padding: 11px;
+        width: 200px;
+        color: #fff;
+        border-radius: 12px;
+        outline: none;
+    }
+    .product button.inc,button.dec,span{
+        position: absolute;
+        top:85%;
+        width: 50px;
+    }
+    button.inc{
+        left:43%;
+    }
+    button.dec{
+        left:53%;
+    }
+    .product #qty{
+        left:48%;
     }
     
 </style>
