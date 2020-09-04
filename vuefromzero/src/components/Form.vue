@@ -12,6 +12,13 @@
           <label for="willy">Willy</label><br />
           <strong>CheckedNames</strong>{{ checkedNames }}
       </form>
+      <!-- form2 -->
+           <form>
+               <h3>What is your favorite color?</h3>
+              <textarea v-model="opinion"></textarea><br />
+               <button type="button" v-show="opinion">Sumbit poll</button>
+          </form>
+         
   </div>
 </template>
 
@@ -21,7 +28,8 @@ export default {
     data() {
         return{
             username: '',
-            checkedNames: []
+            checkedNames: [],
+            opinion: ''
         }
     }
 }
