@@ -18,7 +18,7 @@
               <textarea v-model="opinion"></textarea><br />
                <button type="button" :class="[opinion ? activeClass : '']">Submit poll</button>
           </form>
-         
+          <pre> {{ $data }}</pre>
   </div>
 </template>
 
