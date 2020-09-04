@@ -16,7 +16,7 @@
            <form>
                <h3>What is your favorite color?</h3>
               <textarea v-model="opinion"></textarea><br />
-               <button type="button" v-show="opinion">Sumbit poll</button>
+               <button type="button" :class="[opinion ? activeClass : '']">Submit poll</button>
           </form>
          
   </div>
@@ -29,7 +29,8 @@ export default {
         return{
             username: '',
             checkedNames: [],
-            opinion: ''
+            opinion: '',
+            activeClass: 'active'
         }
     }
 }
@@ -39,6 +40,9 @@ export default {
     #form form{
         margin:0 auto;
         width: 50%;
+    }
+    button.active{
+        background: orange;
     }
     
 </style>
