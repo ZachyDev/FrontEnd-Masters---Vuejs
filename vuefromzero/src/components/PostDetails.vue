@@ -8,7 +8,7 @@
          <input type="text" placeholder="skill" v-model="skill"/>
          <input type="submit" class="bg-success">
          <strong>Response from server</strong>
-         {{response }}
+         {{response }}  {{ timer }}
      </form>
      
   </div>
@@ -25,7 +25,13 @@ export default {
             name: '',
             email: '',
             skill: '',
-            response: ''
+            response: '',
+            activeClass: ''
+        }
+    },
+    computed: {
+        timer() {
+            return new Date().toLocaleTimeString();
         }
     },
     methods: {
