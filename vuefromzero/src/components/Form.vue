@@ -28,8 +28,15 @@
               <button class="inc" @click="counter < 5 ? counter += 1 : 5">+</button>
               <button id="submit" @click="submit">Submit</button>
           </div>
-
           <pre> {{ $data }}</pre>
+
+          <!-- comment -->
+           <input type="text" placeholder="Enter Comment" v-model="comment" @keyup.enter="addComment"/>
+           <ul>
+               <li :key="commentId" v-for="commentId in commentsList">
+                   {{commentId}}
+               </li>
+           </ul>
   </div>
 </template>
 
@@ -42,12 +49,21 @@ export default {
             checkedNames: [],
             opinion: '',
             activeClass: 'active',
-            counter: 5
+            counter: 5,
+            comment: '',
+            commentsList: [
+                "I am Zachary Moseti",
+                "I am doing Vue.js",
+                "I am a developer"
+            ]
         }
     },
     methods: {
         submit() {
             this.counter == 0 ? alert(`Enter the quantity size.`) : alert(`Order with quantity ${this.counter} successfully placed.`);
+        },
+        addComment() {
+            return this.commentsList.push(this.comment);
         }
     }
 }
