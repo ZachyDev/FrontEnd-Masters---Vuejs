@@ -7,7 +7,7 @@
          <input type="text" placeholder="Email" v-model="email"/>
          <input type="text" placeholder="skill" v-model="skill"/>
          <input type="submit" class="bg-success">
-         <strong>Response from server</strong>
+         <strong v-if="response.length === 0">Waiting to fetch data...</strong>
          {{response }}  {{ timer }}
      </form>
      
@@ -46,7 +46,7 @@ export default {
                 return this.response = res.data;
             })
             .catch(err => {
-                return this.response = err
+                return this.response = `Error ${err}`;
             })
         }
     }
