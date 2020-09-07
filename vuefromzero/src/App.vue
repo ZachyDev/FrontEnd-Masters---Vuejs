@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <Home /> -->
     <!-- <Form /> -->
-    <PostDetails />
+    <PostDetails :text="text"/>
   </div>
 </template>
 
@@ -11,6 +11,12 @@
 // import Form from './components/Form';
 import PostDetails from './components/PostDetails';
 export default {
+  data() {
+    return {
+      text: "Introduction to Vuejs by FrontEnd masters"
+    }
+    
+  },
   components: {
     // Home,
     // Form

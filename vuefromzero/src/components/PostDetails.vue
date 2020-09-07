@@ -2,6 +2,7 @@
   <div>
      <form @submit.prevent="postData">
          <h1>Post to Server</h1>
+         <h4>{{text}}</h4>
          <input type="text" placeholder="UserId" v-model="userId"/>
          <input type="text" placeholder="Name" v-model="name"/>
          <input type="text" placeholder="Email" v-model="email"/>
@@ -27,6 +28,13 @@ export default {
             skill: '',
             response: '',
             activeClass: ''
+        }
+    },
+    props:{
+        text: {
+            type: String,
+            required: true,
+            default: 'FrontEnd Masters  '
         }
     },
     computed: {
