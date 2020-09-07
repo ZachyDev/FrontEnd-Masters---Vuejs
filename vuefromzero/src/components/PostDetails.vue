@@ -34,7 +34,7 @@ export default {
         text: {
             type: String,
             required: true,
-            default: 'FrontEnd Masters  '
+            default: 'FrontEnd Masters'
         }
     },
     computed: {
